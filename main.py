@@ -1,12 +1,13 @@
-def my_pow(number, degree):
-    if degree <= 1:
-        return number
+def sum_range(a, b):
+    if a == b:
+        print(f"sum_range({a}, {b}) -> {a}")
+        return a
 
-    result = number * my_pow(number, degree - 1)
-    print(f"my_pow({number}, {degree}) -> {number} * my_pow({number}, {degree - 1}) => {result}")
-    return result
+    print(f"sum_range({a}, {b}) -> {a} + sum_range({a + 1}, {b})")
+    return a + sum_range(a + 1, b)
 
-number = 2
-degree = 3
-result = my_pow(number, degree)
-print(f"my_pow({number}, {degree}) -> {result}")
+a = int(input("Enter the starting number (a): "))
+b = int(input("Enter the ending number (b): "))
+
+result = sum_range(a, b)
+print(f"The sum of numbers in the range from {a} to {b} is {result}.")
